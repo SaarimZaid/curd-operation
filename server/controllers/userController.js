@@ -1,7 +1,7 @@
-import userModel from "../models/userModel.js";
-import bcrypt from "bcrypt";
+const userModel = require("../models/userModel.js");
+const bcrypt = require("bcrypt");
 
-export const login = async (req, res) => {
+module.exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await userModel.findOne({ email: email });
@@ -25,7 +25,7 @@ export const login = async (req, res) => {
   }
 };
 
-export const register = async (req, res) => {
+module.exports.register = async (req, res) => {
   const { email, password, name } = req.body;
   const userCheck = await userModel.findOne({ email: email });
   try {

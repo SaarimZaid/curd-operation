@@ -1,13 +1,14 @@
-// libraries imports
-import express from "express";
-import cors from "cors";
-import bodyParser from "body-parser";
+// libraries consts
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+require("dotenv").config();
 
-// file imports
-import connect from "./database/mongoDb.js";
+// file consts
+const connect = require("./database/mongoDb.js");
 
-// router imports
-import userRouter from "./routes/userRoutes.js";
+// router consts
+const userRouter = require("./routes/userRoutes.js");
 
 // app
 const app = express();
@@ -17,6 +18,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/auth", userRouter);
 
-await connect();
+connect();
 
 app.listen(port, () => console.log(`server started on port ${port}`));

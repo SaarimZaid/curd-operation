@@ -1,6 +1,14 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-export default async function connect() {
-  await mongoose.connect("mongodb://localhost:27017/edulfin");
-  console.log("database connected");
+function connect() {
+  mongoose
+    .connect("mongodb://127.0.0.1:27017/startercode")
+    .then(() => {
+      console.log("database connected");
+    })
+    .catch((err) => {
+      console.log("there was some error", err);
+    });
 }
+
+module.exports = connect;
