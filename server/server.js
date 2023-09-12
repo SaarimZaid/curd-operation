@@ -18,6 +18,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/auth", userRouter);
 
-connect();
+connect(); //you will have to edit this in ./databse/mongoDb.js
 
 app.listen(port, () => console.log(`server started on port ${port}`));

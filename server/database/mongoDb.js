@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 function connect() {
   mongoose
-    .connect("mongodb://127.0.0.1:27017/startercode")
+    .connect("insert your own db string here")
     .then(() => {
       console.log("database connected");
     })
